@@ -4,7 +4,6 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
@@ -21,20 +20,19 @@ func UploadFileHandler(c *gin.Context) {
 		return
 	}
 
-	// Generate a unique file ID and retain the original extension
+	// To generate random UUID for the file.
 	fileId := uuid.New().String() + filepath.Ext(file.Filename)
 	filePath := filepath.Join(storageDir, fileId)
 
-	// Save the file
+	// Save the file in local
+	// Todo: Add push to IPFS
 	if err := c.SaveUploadedFile(file, filePath); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 
 	c.JSON(http.StatusOK, gin.H{
-		"fileId":    fileId,
-		"size":      file.Size,
-		"timestamp": time.Now().Format(time.RFC3339),
+		"fileId": fileId,
 	})
 }
 
