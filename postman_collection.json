@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "bf34bc3f-26ff-41a4-9787-0c028d69ba5e",
+		"name": "FileVerse's Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13537038"
+	},
+	"item": [
+		{
+			"name": "Upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/anubhavitis/Downloads/video-2.webm"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/file/QmdgDxPbuFGsFnFReGSw6q5qjzbpaqSvzS4h8Y9XdNAFYo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"file",
+						"QmdgDxPbuFGsFnFReGSw6q5qjzbpaqSvzS4h8Y9XdNAFYo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
